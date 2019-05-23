@@ -1,0 +1,265 @@
+<h1 class="custom-estim-title">Estimer mon bien</h1>
+
+<div id="formMenu">
+	<nav class="custom-bar">
+	    <ul class="custom-list">
+	      <li class="custom-bar-item custom-button custom-hover-none custom-border-white custom-bottombar custom-hover-border-pink custom-hover-text-pink">
+	      	<a onclick="hideShow('navGen')"><div class="diva">Général</div></a></li>
+	      <li class="custom-bar-item custom-button custom-hover-none custom-border-white custom-bottombar custom-hover-border-pink custom-hover-text-pink">
+	      	<a onclick="hideShow('navTrav')"><div  class="diva">Travaux</div></a></li>
+	      <li class="custom-bar-item custom-button custom-hover-none custom-border-white custom-bottombar custom-hover-border-pink custom-hover-text-pink">
+	      	<a onclick="hideShow('navEnv')"><div  class="diva">Environnement</div></a></li>
+	      <li class="custom-bar-item custom-button custom-hover-none custom-border-white custom-bottombar custom-hover-border-pink custom-hover-text-pink">
+	      	<a onclick="hideShow('navAutre')"><div  class="diva">Autre</div></a></li>
+	    </ul>
+	</nav>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div id="general">
+		<h2>Général :</h2>
+		<label>
+			Code Postal :
+		</label>
+			<input type="number" class="form-control" formControlName="codePostal" required>
+		<br>
+
+		<label>
+			Ville :
+		</label>
+		    <input type="text" class="form-control" formControlName="ville" required>
+		<br>
+
+		<label>
+		    Adresse :
+		</label>
+		    <input type="text" class="form-control" formControlName="adresse" required>
+		<br>
+
+		<label>
+		    Type d'habitation :
+		</label>
+		    <select class="form-control" formControlName="typeHabitation" required>
+				<option value="maison">Maison</option>
+				<option value="apart">Appartement</option>
+		    </select>
+		<br>
+
+		<label>
+		    Nombre de mètres carré :
+		</label>
+		    <input type="number" class="form-control" formControlName="nbM2" required>
+		<br>
+
+		<label>
+		    Nombre de pièces :
+		</label>
+		    <input type="number" class="form-control" formControlName="nbPiece" required>
+		<br>
+
+		<label>
+		    Nombre de salles de bain :
+		</label>
+		    <input type="number" class="form-control" formControlName="nbSDB">
+		<br>
+	</div>
+
+	<div id="travaux">
+		<div class="custom-title">
+			Etat général du bien :
+		</div>
+		<br>
+		<ng5-slider class="custom-slider" [(value)]="value1" [options]="options"></ng5-slider>
+		<br>
+
+		<div class="custom-title">
+			Etat de la copropriété : 
+		</div>
+		<br>
+		<ng5-slider class="custom-slider" [(value)]="value2" [options]="options"></ng5-slider>
+		<br>
+
+		<div class="custom-title">
+			Etat des installations électriques/plomberie : 
+		</div>
+		<br>
+		<ng5-slider class="custom-slider" [(value)]="value3" [options]="options"></ng5-slider>
+		<br>
+
+		<div class="custom-title">
+			Etat des murs :
+		</div>
+		<br>
+		<ng5-slider class="custom-slider" [(value)]="value4" [options]="options"></ng5-slider>
+		<br>
+
+		<div class="custom-title">
+			Etat de l'isolation :
+		</div>
+		<br>
+		<ng5-slider class="custom-slider" [(value)]="value5" [options]="options"></ng5-slider>
+		<br>
+
+	</div>
+
+	<div id="environnement">
+
+	  <div class="custom-title">
+	    Luminosité :
+	  </div>
+  		<br>
+		<ng5-slider class="custom-slider" [(value)]="value6" [options]="optionsLumiere"></ng5-slider>
+		<br>
+
+	  <div class="custom-title">
+	    Niveau sonore :
+	  </div>
+  		<br>
+		<ng5-slider class="custom-slider" [(value)]="value7" [options]="optionsSon"></ng5-slider>
+		<br>
+
+	  <div class="custom-title">
+	    Population :
+	  </div>
+  		<br>
+		<ng5-slider class="custom-slider" [(value)]="value8" [options]="optionsPop"></ng5-slider>
+		<br>
+
+	  <div class="custom-title">
+	    Proximité des écoles :
+	  </div>
+  		<br>
+		<ng5-slider class="custom-slider" [(value)]="value9" [options]="optionsDistance"></ng5-slider>
+		<br>
+
+	  <div class="custom-title">
+	    Proximité des transports :
+	  </div>
+  		<br>
+		<ng5-slider class="custom-slider" [(value)]="value10" [options]="optionsDistance"></ng5-slider>
+		<br>
+
+	  <div class="custom-title">
+	    Proximité des commerces :
+	  </div>
+  		<br>
+		<ng5-slider class="custom-slider" [(value)]="value11" [options]="optionsDistance"></ng5-slider>
+		<br>
+
+	  <label>
+	    Orientation :
+	  </label>
+	    <select class="form-control" formControlName="orientation">
+	     <option value="maison">Nord</option>
+	     <option value="maison">Sud</option>
+	     <option value="maison">Est</option>
+	     <option value="maison">Ouest</option>
+	    </select>
+	  <br>
+
+		<div class="wrap">
+			<input id="checkEnv" formControlName="eauUsee" type="checkbox" name="checkEnv" value="checkEnv">
+			<label class="custom-checkbox" for="checkEnv">
+				Raccord aux eaux usées
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="checkEnv1" formControlName="mitoyen" type="checkbox" name="checkEnv1" value="checkEnv1">
+			<label class="custom-checkbox" for="checkEnv1">
+				Bâtiment mitoyen
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="checkEnv2" formControlName="fibre" type="checkbox" name="checkEnv2" value="checkEnv2">
+			<label class="custom-checkbox" for="checkEnv2">
+				Eligible à la fibre
+			</label>
+		</div>
+
+	</div>
+
+	<div id="autre">
+
+		<div class="wrap">
+			<input id="check" formControlName="piscine" type="checkbox" name="check" value="check">
+			<label class="custom-checkbox" for="check">
+				Piscine
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check2" formControlName="jardin" type="checkbox" name="check2" value="check2">
+			<label class="custom-checkbox" for="check2">
+				Jardin
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check3" formControlName="ascenceur" type="checkbox" name="check3" value="check3">
+			<label class="custom-checkbox" for="check3">
+				Ascenceur
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check4" formControlName="balcon" type="checkbox" name="check4" value="check4">
+			<label class="custom-checkbox" for="check4">
+				Balcon
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check5" formControlName="veranda" type="checkbox" name="check5" value="check5">
+			<label class="custom-checkbox" for="check5">
+				Véranda
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check6" formControlName="parking" type="checkbox" name="check6" value="check6">
+			<label class="custom-checkbox" for="check6">
+				Parking
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check7" formControlName="terrasse" type="checkbox" name="check7" value="check7">
+			<label class="custom-checkbox" for="check7">
+				Terrasse
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check8" formControlName="tennis" type="checkbox" name="check8" value="check8">
+			<label class="custom-checkbox" for="check8">
+				Terrain de tennis
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check9" formControlName="cave" type="checkbox" name="check9" value="check9">
+			<label class="custom-checkbox" for="check9">
+				Cave
+			</label>
+		</div>
+
+		<div class="wrap">
+			<input id="check10" formControlName="grenier" type="checkbox" name="check10" value="check10">
+			<label class="custom-checkbox" for="check10">
+				Grenier
+			</label>
+		</div>
+	</div>
+
+	<br>
+	<div id="submit">
+		<button (click)="getDataBienImmo()" type="submit" class="custom-btn custom-btn-primary custom-mb-2" [disabled]="!form.valid" onclick="hideShow('navRes')">Envoyer</button>
+	</div>
+</form>
+
+<div id="res">
+	<a id="lienLBC"><button class="custom-btn custom-btn-primary custom-mb-2">Voir des biens similaires</button></a>
+	<button class="custom-btn custom-btn-primary custom-mb-2" onclick="hideShow('navGen')">Retour au formulaire</button>
+</div>

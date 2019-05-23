@@ -1,0 +1,25 @@
+* {
+	font-family: Cambria, Georgia;
+}
+
+h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 350%;
+}
+
+.subtitle {
+	text-align: center;
+	font-style: italic;
+	font-size: x-large;
+}
+
+.text-content {
+	text-align: justify;
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+
+p {	
+	text-indent: 2rem;
+}
